@@ -6,7 +6,7 @@ description: >
   Trigger this skill whenever the user wants to query prices, place/cancel orders, check balances, withdraw or deposit assets, or interact with the Upbit exchange API — in any language.
   사용자가 업비트 시세·주문·잔고·입출금을 언급하면 반드시 이 스킬을 사용하세요.
 metadata:
-  version: v0.9.0
+  version: v0.9.1
   author: Upbit
 license: Apache-2.0
 ---
@@ -60,8 +60,8 @@ Or pass inline per command:
 upbit <resource> <command> --access-key <key> --secret-key <secret>
 ```
 
-**Private** (require auth): `accounts`, `api-keys`, `orders`, `withdraws`, `deposits`, `travel-rule`
-**Public** (no auth): `tickers`, `orderbooks`, `trades`, `candles`, `trading-pairs`, `wallet-status`
+**Private** (require auth): `accounts`, `api-keys`, `orders`, `withdraws`, `deposits`, `travel-rule`, `wallet-status`
+**Public** (no auth): `tickers`, `orderbooks`, `trades`, `candles`, `trading-pairs`
 
 ## Safety Rule — Write Operations
 

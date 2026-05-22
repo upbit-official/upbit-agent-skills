@@ -8,6 +8,8 @@ Upbit Agent Skills는 AI 에이전트가 업비트의 시세 조회, 자산 확�
 
 이 프로젝트는 전문 개발자뿐 아니라, AI 기술 활용에 적극적인 트레이더들을 위해 만들어졌습니다. 코드를 직접 작성하는 부담 없이 AI와 함께 자신만의 트레이딩 환경을 보다 유연하게 구성하고 실험해보세요.
 
+![Upbit Agent Skills](./docs/images/skills-intro.png)
+
 ## 설치
 
 [Node.js](https://nodejs.org) 18 이상이 필요합니다.
