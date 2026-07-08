@@ -20,7 +20,7 @@ Quote currencies: `KRW`, `BTC`, `USDT`. Always uppercase, hyphen-delimited.
 | `is_details` |  | Whether to include detailed information in the query. |
 
 ```sh
-upbit trading-pairs list
+upbit trading-pairs list --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

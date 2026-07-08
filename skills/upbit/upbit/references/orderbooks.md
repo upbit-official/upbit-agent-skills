@@ -10,7 +10,8 @@
 
 ```sh
 upbit orderbooks list \
-  --markets "KRW-BTC,KRW-ETH"
+  --markets "KRW-BTC,KRW-ETH" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -23,7 +24,8 @@ upbit orderbooks list \
 
 ```sh
 upbit orderbooks list-instruments \
-  --markets "KRW-BTC,KRW-ETH"
+  --markets "KRW-BTC,KRW-ETH" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

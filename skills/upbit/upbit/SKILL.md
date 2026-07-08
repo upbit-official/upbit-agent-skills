@@ -6,7 +6,7 @@ description: >
   Trigger this skill whenever the user wants to query prices, place/cancel orders, check balances, withdraw or deposit assets, or interact with the Upbit exchange API — in any language.
   사용자가 업비트 시세·주문·잔고·입출금을 언급하면 반드시 이 스킬을 사용하세요.
 metadata:
-  version: v0.9.1
+  version: v0.9.2
   author: Upbit
 license: Apache-2.0
 ---
@@ -31,11 +31,29 @@ Load `references/glossary.md` when translating terminology or explaining respons
 
 If `upbit` is not installed or credentials are not configured, load `references/setup.md` and follow the steps there.
 
-Check if `upbit` is available:
+Check if `upbit` is available and meets the minimum version:
 
 ```bash
 upbit --version
 ```
+
+**Requires v0.9.2+.** If older, upgrade before continuing:
+
+```bash
+npm install -g @upbit-official/upbit-cli@latest
+```
+
+## Required Request Header
+
+**Always append `--header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'` as the last argument** to every `upbit` command that calls the API. This applies to all API-calling invocations — both public (`tickers`, `orderbooks`, `trades`, `candles`, `trading-pairs`) and private (`accounts`, `orders`, `withdraws`, `deposits`, `travel-rule`, `api-keys`, `wallet-status`) endpoints.
+
+```bash
+upbit <resource> <command> [flags] --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
+```
+
+**`{metadata.version}` is a placeholder — never send it literally.** Before running any command, substitute `{metadata.version}` with this skill's version from the `metadata.version` field in the front matter above.
+
+**Excluded** (these do not make API requests, so omit the header): `upbit --version`, `upbit config set`, `upbit config show`, `upbit config path`, and installation/shell snippets (`npm install`, `node --version`, `curl`, `export ...`).
 
 ## Authentication
 
@@ -57,7 +75,7 @@ export UPBIT_SECRET_KEY=<your-secret-key>
 Or pass inline per command:
 
 ```bash
-upbit <resource> <command> --access-key <key> --secret-key <secret>
+upbit <resource> <command> --access-key <key> --secret-key <secret> --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 **Private** (require auth): `accounts`, `api-keys`, `orders`, `withdraws`, `deposits`, `travel-rule`, `wallet-status`
@@ -157,7 +175,7 @@ Before placing an order on an unfamiliar market, run `orders retrieve-chance` to
 - Fee rates (`bid_fee`, `ask_fee`, `maker_bid_fee`, `maker_ask_fee`)
 
 ```bash
-upbit orders retrieve-chance --market "KRW-BTC"
+upbit orders retrieve-chance --market "KRW-BTC" --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ### Withdrawal — Multi-Chain Assets
@@ -165,7 +183,7 @@ upbit orders retrieve-chance --market "KRW-BTC"
 For assets available on multiple networks (e.g., USDT), `net_type` is required to specify the blockchain. Use `withdraws list-coin-addresses` to see supported networks and addresses before withdrawing:
 
 ```bash
-upbit withdraws list-coin-addresses --currency "USDT"
+upbit withdraws list-coin-addresses --currency "USDT" --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ### Withdrawal — Secondary Address
@@ -290,7 +308,7 @@ For flags not listed in reference files, run: `upbit <resource> <command> --help
 ## Environment
 
 ```bash
-upbit accounts list                   # kr (default)
-upbit accounts list --environment sg  # sg | id | th
-upbit accounts list --base-url <url>  # custom base URL
+upbit accounts list --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'                   # kr (default)
+upbit accounts list --environment sg --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'  # sg | id | th
+upbit accounts list --base-url <url> --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'  # custom base URL
 ```

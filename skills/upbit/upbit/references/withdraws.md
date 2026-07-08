@@ -11,7 +11,8 @@ Auth required
 ```sh
 upbit withdraws retrieve-chance \
   --currency "BTC" \
-  --net-type "BTC"
+  --net-type "BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -20,7 +21,7 @@ upbit withdraws retrieve-chance \
 Auth required
 
 ```sh
-upbit withdraws list-coin-addresses
+upbit withdraws list-coin-addresses --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -42,7 +43,8 @@ upbit withdraws create-withdrawal \
   --currency "BTC" \
   --net-type "BTC" \
   --amount "0.01" \
-  --address "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
+  --address "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -56,7 +58,8 @@ Auth required
 
 ```sh
 upbit withdraws cancel-withdrawal \
-  --uuid "9f432943-54e0-40b7-825f-b6fec8b42b79"
+  --uuid "9f432943-54e0-40b7-825f-b6fec8b42b79" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -72,7 +75,8 @@ Auth required
 ```sh
 upbit withdraws create-krw-withdrawal \
   --amount "10000" \
-  --two-factor-type "naver"
+  --two-factor-type "naver" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -95,7 +99,8 @@ Auth required
 ```sh
 upbit withdraws list \
   --currency "XRP" \
-  --state "DONE"
+  --state "DONE" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -111,7 +116,8 @@ Auth required
 
 ```sh
 upbit withdraws retrieve \
-  --currency "BTC"
+  --currency "BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

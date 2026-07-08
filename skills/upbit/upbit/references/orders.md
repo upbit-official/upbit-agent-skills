@@ -9,7 +9,8 @@ Auth required
 
 ```sh
 upbit orders retrieve-chance \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -34,7 +35,8 @@ upbit orders create \
   --side "bid" \
   --volume "1" \
   --price "14000000" \
-  --ord-type "limit"
+  --ord-type "limit" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -59,7 +61,8 @@ upbit orders test-create \
   --side "bid" \
   --volume "1" \
   --price "14000000" \
-  --ord-type "limit"
+  --ord-type "limit" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -81,7 +84,8 @@ Auth required
 upbit orders list-closed \
   --market "KRW-BTC" \
   --state "done" \
-  --state "cancel"
+  --state "cancel" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -104,7 +108,8 @@ Auth required
 upbit orders cancel-and-new \
   --prev-order-uuid "ad217e24-ed02-469c-9b30-c08dbbda6908" \
   --new-ord-type "limit" \
-  --new-price "100000000"
+  --new-price "100000000" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -119,7 +124,8 @@ Auth required
 
 ```sh
 upbit orders retrieve \
-  --uuid "9ca023a5-851b-4fec-9f0a-48cd83c2eaae"
+  --uuid "9ca023a5-851b-4fec-9f0a-48cd83c2eaae" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -134,7 +140,8 @@ Auth required
 
 ```sh
 upbit orders cancel \
-  --uuid "cdd92199-2897-4e14-9448-f923320408ad"
+  --uuid "cdd92199-2897-4e14-9448-f923320408ad" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -154,7 +161,8 @@ upbit orders list-by-uuids \
   --uuid "5d303952-8be9-41e6-915b-121a90026248" \
   --uuid "3944c2c1-bd8c-441a-aa25-2370d08217a9" \
   --uuid "5b95451b-971e-4e76-8f61-5ff441f078d5" \
-  --uuid "3b67e543-8ad3-48d0-8451-0dad315cae73"
+  --uuid "3b67e543-8ad3-48d0-8451-0dad315cae73" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -171,7 +179,8 @@ Auth required
 upbit orders cancel-by-uuids \
   --uuid "bbbb8e07-1689-4769-af3e-a117016623f8" \
   --uuid "4312ba49-5f1a-4a01-9f3b-2d2bce17267e" \
-  --uuid "bdb49a54-de36-4eb4-a963-9c8d4337a9da"
+  --uuid "bdb49a54-de36-4eb4-a963-9c8d4337a9da" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -192,7 +201,8 @@ Auth required
 upbit orders list-open \
   --market "KRW-BTC" \
   --state "wait" \
-  --state "watch"
+  --state "watch" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -213,7 +223,8 @@ Auth required
 upbit orders cancel-open \
   --quote-currencies "KRW,BTC" \
   --cancel-side "all" \
-  --excluded-pairs "KRW-ETH,BTC-XRP"
+  --excluded-pairs "KRW-ETH,BTC-XRP" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

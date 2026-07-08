@@ -10,7 +10,8 @@
 
 ```sh
 upbit candles list-seconds \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -27,7 +28,8 @@ upbit candles list-seconds \
 ```sh
 upbit candles list-minutes \
   --unit 15 \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -43,7 +45,8 @@ upbit candles list-minutes \
 
 ```sh
 upbit candles list-days \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -58,7 +61,8 @@ upbit candles list-days \
 
 ```sh
 upbit candles list-weeks \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -73,7 +77,8 @@ upbit candles list-weeks \
 
 ```sh
 upbit candles list-months \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -88,7 +93,8 @@ upbit candles list-months \
 
 ```sh
 upbit candles list-years \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

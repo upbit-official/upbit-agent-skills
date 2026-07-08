@@ -4,7 +4,7 @@
 Auth required
 
 ```sh
-upbit accounts list
+upbit accounts list --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -14,7 +14,7 @@ upbit accounts list
 Auth required
 
 ```sh
-upbit api-keys list
+upbit api-keys list --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -24,7 +24,7 @@ upbit api-keys list
 Auth required
 
 ```sh
-upbit wallet-status list
+upbit wallet-status list --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

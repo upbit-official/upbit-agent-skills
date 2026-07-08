@@ -11,7 +11,8 @@ Auth required
 ```sh
 upbit deposits retrieve-chance \
   --currency "BTC" \
-  --net-type "BTC"
+  --net-type "BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -27,7 +28,8 @@ Auth required
 ```sh
 upbit deposits create-coin-address \
   --currency "BTC" \
-  --net-type "BTC"
+  --net-type "BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -43,7 +45,8 @@ Auth required
 ```sh
 upbit deposits retrieve-coin-address \
   --currency "BTC" \
-  --net-type "BTC"
+  --net-type "BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -52,7 +55,7 @@ upbit deposits retrieve-coin-address \
 Auth required
 
 ```sh
-upbit deposits list-coin-addresses
+upbit deposits list-coin-addresses --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -68,7 +71,8 @@ Auth required
 ```sh
 upbit deposits deposit-krw \
   --amount "10000" \
-  --two-factor-type "naver"
+  --two-factor-type "naver" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -90,7 +94,8 @@ Auth required
 
 ```sh
 upbit deposits list \
-  --currency "KRW"
+  --currency "KRW" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -106,7 +111,8 @@ Auth required
 
 ```sh
 upbit deposits retrieve \
-  --uuid "94332e99-3a87-4a35-ad98-28b0c969f830"
+  --uuid "94332e99-3a87-4a35-ad98-28b0c969f830" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

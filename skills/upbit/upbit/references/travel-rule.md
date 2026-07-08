@@ -4,7 +4,7 @@
 Auth required
 
 ```sh
-upbit travel-rule list-vasps
+upbit travel-rule list-vasps --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -20,7 +20,8 @@ Auth required
 ```sh
 upbit travel-rule verify-deposit-by-uuid \
   --deposit-uuid "5b871d34-fe38-4025-8f5c-9b22028f85d3" \
-  --vasp-uuid "8d4fe968-82b2-42e5-822f-3840a245f802"
+  --vasp-uuid "8d4fe968-82b2-42e5-822f-3840a245f802" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -40,7 +41,8 @@ upbit travel-rule verify-deposit-by-txid \
   --vasp-uuid "8d4fe968-82b2-42e5-822f-3840a245f802" \
   --txid "5b871d34-fe38-4025-8f5c-9b22028f85d3" \
   --currency "ETH" \
-  --net-type "ETH"
+  --net-type "ETH" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

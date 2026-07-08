@@ -51,6 +51,12 @@ After installation, verify:
 upbit --version
 ```
 
+**Requires v0.9.2+.** If older, upgrade before continuing:
+
+```bash
+npm install -g @upbit-official/upbit-cli@latest
+```
+
 If `upbit` is not found after installation, the user may need to update their PATH. Common fixes:
 
 - **macOS/Linux (npm global bin not in PATH)**:
@@ -129,8 +135,8 @@ config_file: ~/.upbit/config
 
 Then test with a live API call:
 
-- **KR**: `upbit accounts list`
-- **Other**: `upbit accounts list --environment <selected-environment>`
+- **KR**: `upbit accounts list --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'`
+- **Other**: `upbit accounts list --environment <selected-environment> --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'`
 
 A successful response returns the user's asset balances. An authentication error means the keys were entered incorrectly — run `upbit config set` again.
 
@@ -163,6 +169,7 @@ upbit config path
 | Symptom | Fix |
 |---|---|
 | `upbit: command not found` | `npm install -g @upbit-official/upbit-cli` and check PATH |
+| `unknown flag: --header` | CLI is below v0.9.2 — run `npm install -g @upbit-official/upbit-cli@latest` |
 | `401 Unauthorized` | Re-run `upbit config set` with correct keys |
 | `403 Forbidden` | API key lacks required permissions — update on the API management page |
 | `No credentials configured` | Run `upbit config set` to save credentials |

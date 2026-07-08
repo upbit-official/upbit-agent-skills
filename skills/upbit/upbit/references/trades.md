@@ -12,7 +12,8 @@
 
 ```sh
 upbit trades list \
-  --market "KRW-BTC"
+  --market "KRW-BTC" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---

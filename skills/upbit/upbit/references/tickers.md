@@ -8,7 +8,8 @@
 
 ```sh
 upbit tickers list-by-trading-pairs \
-  --markets "KRW-BTC,KRW-ETH"
+  --markets "KRW-BTC,KRW-ETH" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
@@ -21,7 +22,8 @@ upbit tickers list-by-trading-pairs \
 
 ```sh
 upbit tickers list-by-quote-currencies \
-  --quote-currencies "KRW,BTC,USDT"
+  --quote-currencies "KRW,BTC,USDT" \
+  --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
 ---
