@@ -1,10 +1,10 @@
-# Upbit Agent Skills
+# Upbit Skills
 
 [English](./README.md) | 한국어
 
 디지털 자산 거래소 [업비트](https://www.upbit.com) API 기반의 AI 에이전트 스킬입니다.
 
-Upbit Agent Skills는 AI 에이전트가 업비트의 시세 조회, 자산 확인, 주문 실행 등 주요 기능을 자연어로 수행할 수 있도록 지원합니다. 업비트 API 기반 CLI와 연동되어, AI가 상황에 맞는 적절한 지침을 바탕으로 필요한 작업을 수행할 수 있게 합니다.
+Upbit Skills는 AI 에이전트가 업비트의 시세 조회, 자산 확인, 주문 실행 등 주요 기능을 자연어로 수행할 수 있도록 지원합니다. 업비트 API 기반 CLI와 연동되어, AI가 상황에 맞는 적절한 지침을 바탕으로 필요한 작업을 수행할 수 있게 합니다.
 
 이 프로젝트는 전문 개발자뿐 아니라, AI 기술 활용에 적극적인 트레이더들을 위해 만들어졌습니다. 코드를 직접 작성하는 부담 없이 AI와 함께 자신만의 트레이딩 환경을 보다 유연하게 구성하고 실험해보세요.
 
@@ -27,7 +27,7 @@ npx skills add upbit-official/upbit-agent-skills -g
 이 스킬은 [upbit-cli](https://github.com/upbit-official/upbit-cli)와 연동되어 동작합니다. 아래 명령으로 설치하세요.
 
 ```bash
-npm install -g upbit-official/upbit-cli
+npm install -g @upbit-official/upbit-cli
 ```
 
 ## 스킬 목록
@@ -57,7 +57,7 @@ export UPBIT_SECRET_KEY=<your-secret-key>
 
 ## 기여
 
-Upbit Agent Skills는 초기 릴리스 단계로, 현재는 외부 기여(Issues/PRs)를 받지 않고 있습니다.
+Upbit Skills는 초기 릴리스 단계로, 현재는 외부 기여(Issues/PRs)를 받지 않고 있습니다.
 버그 제보 및 피드백은 open-api@upbit.com으로 이메일 주시기 바랍니다.
 프로젝트가 안정화됨에 따라 외부 기여 채널을 단계적으로 개방하는 방안을 검토 중입니다.
 

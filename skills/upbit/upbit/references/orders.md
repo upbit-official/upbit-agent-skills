@@ -41,7 +41,7 @@ upbit orders create \
 
 ---
 
-## Test Order Creation
+## Test Order
 Auth required
 
 | Name | Required | Description |

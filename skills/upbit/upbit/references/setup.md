@@ -51,7 +51,7 @@ After installation, verify:
 upbit --version
 ```
 
-**Requires v0.9.2+.** If older, upgrade before continuing:
+**Requires v1.0.0+.** If older, upgrade before continuing:
 
 ```bash
 npm install -g @upbit-official/upbit-cli@latest

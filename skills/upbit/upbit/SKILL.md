@@ -6,7 +6,7 @@ description: >
   Trigger this skill whenever the user wants to query prices, place/cancel orders, check balances, withdraw or deposit assets, or interact with the Upbit exchange API — in any language.
   사용자가 업비트 시세·주문·잔고·입출금을 언급하면 반드시 이 스킬을 사용하세요.
 metadata:
-  version: v0.9.2
+  version: v1.0.0
   author: Upbit
 license: Apache-2.0
 ---
@@ -37,7 +37,7 @@ Check if `upbit` is available and meets the minimum version:
 upbit --version
 ```
 
-**Requires v0.9.2+.** If older, upgrade before continuing:
+**Requires v1.0.0+.** If older, upgrade before continuing:
 
 ```bash
 npm install -g @upbit-official/upbit-cli@latest
@@ -45,7 +45,7 @@ npm install -g @upbit-official/upbit-cli@latest
 
 ## Required Request Header
 
-**Always append `--header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'` as the last argument** to every `upbit` command that calls the API. This applies to all API-calling invocations — both public (`tickers`, `orderbooks`, `trades`, `candles`, `trading-pairs`) and private (`accounts`, `orders`, `withdraws`, `deposits`, `travel-rule`, `api-keys`, `wallet-status`) endpoints.
+**Always append `--header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'` as the last argument** to every `upbit` command that calls the API. This applies to all API-calling invocations — both public (`tickers`, `orderbooks`, `trades`, `candles`, `trading-pairs`) and private (`accounts`, `orders`, `withdraws`, `deposits`, `travel-rule`, `api-keys`, `wallet-status`, `pockets`) endpoints.
 
 ```bash
 upbit <resource> <command> [flags] --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
@@ -78,7 +78,7 @@ Or pass inline per command:
 upbit <resource> <command> --access-key <key> --secret-key <secret> --header 'X-Upbit-Initiator: upbit-cli-skill/{metadata.version}'
 ```
 
-**Private** (require auth): `accounts`, `api-keys`, `orders`, `withdraws`, `deposits`, `travel-rule`, `wallet-status`
+**Private** (require auth): `accounts`, `api-keys`, `orders`, `withdraws`, `deposits`, `travel-rule`, `wallet-status`, `pockets`
 **Public** (no auth): `tickers`, `orderbooks`, `trades`, `candles`, `trading-pairs`
 
 ## Safety Rule — Write Operations
@@ -90,6 +90,7 @@ Write operations:
 - `withdraws create-withdrawal`, `withdraws create-krw-withdrawal`, `withdraws cancel-withdrawal`
 - `deposits deposit-krw`, `deposits create-coin-address`
 - `travel-rule verify-deposit-by-txid`, `travel-rule verify-deposit-by-uuid`
+- `pockets transfer`, `pockets universal-transfer`
 
 `orders test-create` is a dry-run — no CONFIRM needed.
 
@@ -125,6 +126,25 @@ Each entry from `accounts list`:
 | `unit_currency` | Currency `avg_buy_price` is denominated in (e.g., `KRW`, `BTC`) |
 
 Total holdings = `balance` + `locked`
+
+### Pockets
+
+> **Korea (KR) only** — pockets are available exclusively on Upbit Korea. They are not supported on the global service.
+
+A **pocket** lets a user split assets within a single Upbit account for separate purposes. Each pocket is identified by a `uuid`.
+
+- **Main pocket**: created automatically with the account. Handles the account's default trading including external deposits/withdrawals, and can hold master authority over every pocket in the account.
+- **Sub-pocket**: created by the user for a specific purpose. Operates independently within its API key's permission scope, but external deposits/withdrawals are blocked. To move a sub-pocket's assets out, use its own key with `pockets transfer`.
+
+Every `pockets` command requires one of two permissions, and each is only available on one pocket type — so a single API key can never call both groups:
+
+| Commands | Permission | Callable from |
+|---|---|---|
+| `list`, `retrieve-balance`, `list-api-keys`, `universal-transfer`, `list-universal-transfers` | 포켓관리 (pocket management) | Main pocket key only |
+| `transfer`, `list-transfers` | 자산이전 (asset transfer) | Sub-pocket key only |
+
+Note that `retrieve-balance` reads a *sub*-pocket's balance but is still called with the main pocket key.
+See [`references/pockets.md`](references/pockets.md) for full command syntax and parameters, and https://docs.upbit.com/kr/reference/pocket-overview for the official overview.
 
 ### Order Types (`ord_type`)
 
@@ -298,6 +318,7 @@ When you need detailed flag information for a resource, read the corresponding r
 | `withdraws` | retrieve, list, cancel-withdrawal, create-withdrawal, create-krw-withdrawal, list-coin-addresses, retrieve-chance | [`references/withdraws.md`](references/withdraws.md) |
 | `deposits` | retrieve, list, create-coin-address, deposit-krw, list-coin-addresses, retrieve-chance, retrieve-coin-address | [`references/deposits.md`](references/deposits.md) |
 | `travel-rule` | list-vasps, verify-deposit-by-txid, verify-deposit-by-uuid | [`references/travel-rule.md`](references/travel-rule.md) |
+| `pockets` | list, retrieve-balance, transfer, list-transfers, universal-transfer, list-universal-transfers, list-api-keys | [`references/pockets.md`](references/pockets.md) |
 | `accounts` / `api-keys` / `wallet-status` | list | [`references/account.md`](references/account.md) |
 | Output & Filtering | --format, --transform, GJSON, debug, auto-paging | [`references/output.md`](references/output.md) |
 | Korean ↔ English Glossary | Term translations, field name Korean ↔ English mapping | [`references/glossary.md`](references/glossary.md) |

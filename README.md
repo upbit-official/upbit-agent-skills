@@ -1,10 +1,10 @@
-# Upbit Agent Skills
+# Upbit Skills
 
 English | [한국어](./README_KR.md)
 
 AI agent skills built on the [Upbit](https://www.upbit.com) API, for digital asset trading.
 
-Upbit Agent Skills enables AI agents to perform key Upbit functions through natural language, such as checking market data, checking balances, and placing orders. Integrated with an Upbit API-based CLI, it allows AI to carry out the necessary tasks based on context-aware instructions.
+Upbit Skills enables AI agents to perform key Upbit functions through natural language, such as checking market data, checking balances, and placing orders. Integrated with an Upbit API-based CLI, it allows AI to carry out the necessary tasks based on context-aware instructions.
 
 This project is designed not only for professional developers but also for traders who are eager to leverage AI technology. We invite you to build and experiment with your own flexible trading environment alongside AI, significantly reducing the burden of writing code from scratch.
 
@@ -53,9 +53,9 @@ export UPBIT_SECRET_KEY=<your-secret-key>
 
 For a detailed setup guide, see [`setup.md`](skills/upbit/upbit/references/setup.md).
 
-## Contributing
+## Contribution
 
-Upbit Agent Skills is in its initial release phase, and public contributions (Issues/PRs) are currently closed.
+Upbit Skills is in its initial release phase, and public contributions (Issues/PRs) are currently closed.
 For bug reports and feedback, please email open-api@upbit.com.
 We are considering opening external contribution channels in phases as this project becomes more stable.
 
